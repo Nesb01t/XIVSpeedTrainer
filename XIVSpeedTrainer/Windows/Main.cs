@@ -12,7 +12,7 @@ using XIVSpeedTrainer.Libs;
 
 namespace XIVSpeedTrainer.Windows;
 
-public unsafe class MainWindow : Window, IDisposable
+public unsafe class Main : Window, IDisposable
 {
     private Plugin plugin;
 
@@ -20,12 +20,14 @@ public unsafe class MainWindow : Window, IDisposable
     private BattleChara* battleChara;
     private GameObject* gameObject;
 
-    private int selectedOption = 0;
-    private string[] optionsText = { "1.00", "1.05", "1.15", "3.00", "9.99" };
     private IntPtr hwnd;
     private IntPtr hProcess;
 
-    public MainWindow(Plugin plugin) : base(
+    private int selectedOption;
+    private string[] optionsText = { "1.00", "1.05", "1.15", "3.00", "9.99" };
+
+
+    public Main(Plugin plugin) : base(
         "XST 移速测试版", ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse)
     {
         this.SizeConstraints = new WindowSizeConstraints
@@ -36,12 +38,16 @@ public unsafe class MainWindow : Window, IDisposable
         this.plugin = plugin;
     }
 
-    public void Dispose() { }
+    public void Dispose()
+    {
+        SingletonThreadHelper.Dispose();
+    }
 
     public override void Draw()
     {
         InitPlayerInfo();
         InitProcess();
+        InitSingletonThread();
         DrawFunction();
         // DrawDebugger();
     }
@@ -62,6 +68,13 @@ public unsafe class MainWindow : Window, IDisposable
         hProcess = Win32.GetProecssHandle(hwnd);
     }
 
+    private void InitSingletonThread()
+    {
+        if (hProcess == 0) return;
+        if (playerAddress == IntPtr.Zero) return;
+        SingletonThreadHelper.InitThread(hProcess);
+    }
+
     private void DrawFunction()
     {
         ImGui.TextColored(ImGuiColors.HealerGreen, "工具测试用途, 免费使用");
@@ -73,9 +86,7 @@ public unsafe class MainWindow : Window, IDisposable
             bool isSelected = (selectedOption == i);
             if (ImGui.RadioButton(optionsText[i], isSelected))
             {
-                selectedOption = i;
-                float rate = Constants.GetSelectedOption(selectedOption);
-                PlayerMemoryHelper.WriteMemAtPlayerSpeed(hProcess, rate);
+                HandleRadioButton(i);
             }
 
             ImGui.SameLine();
@@ -87,5 +98,12 @@ public unsafe class MainWindow : Window, IDisposable
         ImGui.Text(hwnd.ToString());
         ImGui.Text(hProcess.ToString());
         ImGui.Text(PlayerMemoryHelper.ReadMemAtPlayerSpeed(hProcess).ToString("F2"));
+    }
+
+    private void HandleRadioButton(int i)
+    {
+        selectedOption = i;
+        float rate = Constants.GetSelectedOption(selectedOption);
+        SingletonThreadHelper.SetRate(rate);
     }
 }
