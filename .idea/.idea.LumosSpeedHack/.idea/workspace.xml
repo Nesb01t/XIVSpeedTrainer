@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b2208b8-aa95-448c-8026-c4e60cbe76a7" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/XIVSpeedTrainer/XIVSpeedTrainer.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SamplePlugin.sln" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SamplePlugin/Configuration.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SamplePlugin/Dalamud.Plugin.Bootstrap.targets" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SamplePlugin/Plugin.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SamplePlugin/SamplePlugin.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SamplePlugin/SamplePlugin.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SamplePlugin/Windows/ConfigWindow.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SamplePlugin/Windows/MainWindow.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SamplePlugin/packages.lock.json" beforeDir="false" />
+    <list default="true" id="5b2208b8-aa95-448c-8026-c4e60cbe76a7" name="更改" comment="release: 0.0.1 测试版">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.LumosSpeedHack/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LumosSpeedHack/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XIVSpeedTrainer/Windows/MainWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/XIVSpeedTrainer/Windows/MainWindow.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,12 +64,25 @@
       <workItem from="1696430958140" duration="817000" />
       <workItem from="1696432691624" duration="321000" />
       <workItem from="1696891964710" duration="646000" />
-      <workItem from="1696892725802" duration="298000" />
+      <workItem from="1696892725802" duration="2220000" />
     </task>
+    <task id="LOCAL-00001" summary="release: 0.0.1 测试版">
+      <option name="closed" value="true" />
+      <created>1696893300651</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1696893300651</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="release: 0.0.1 测试版" />
+    <option name="LAST_COMMIT_MESSAGE" value="release: 0.0.1 测试版" />
+  </component>
 </project>
